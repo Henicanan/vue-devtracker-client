@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import { reactive } from "vue";
 import { useNavigateTo } from "@/shared/lib/navigation/useNavigateTo";
 import { useRegister } from "../model/useRegister";
+import { useFormWithReset } from "@/shared/lib/forms/useFormWithReset";
 
 const { navigateTo } = useNavigateTo();
 const { handleRegister } = useRegister();
 
-const formData = reactive({
-  login: "",
-  password: "",
-  recoverPassword: "",
-});
+const {
+  login,
+  password,
+  recoverPassword,
+  reset: resetForm,
+} = useFormWithReset({ login: "", password: "", recoverPassword: "" });
 </script>
 
 <template>
@@ -21,18 +22,14 @@ const formData = reactive({
 
       <form
         @submit.prevent="
-          handleRegister(
-            formData.login,
-            formData.password,
-            formData.recoverPassword
-          )
+          handleRegister(login, password, recoverPassword, resetForm)
         "
         class="register-form"
       >
         <div class="input-group">
           <div class="input-wrapper">
             <input
-              v-model="formData.login"
+              v-model="login"
               type="login"
               id="login"
               placeholder="Login"
@@ -45,7 +42,7 @@ const formData = reactive({
         <div class="input-group">
           <div class="input-wrapper">
             <input
-              v-model="formData.password"
+              v-model="password"
               type="password"
               id="password"
               placeholder="Password"
@@ -57,7 +54,7 @@ const formData = reactive({
         <div class="input-group">
           <div class="input-wrapper">
             <input
-              v-model="formData.recoverPassword"
+              v-model="recoverPassword"
               type="password"
               id="recover-password"
               placeholder="Confirm Password"
