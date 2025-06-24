@@ -1,32 +1,13 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import { useToast } from "./useToast";
+import { useGlobalToast } from "@/shared/lib/toast/useGlobalToast";
 
-const props = defineProps<{
-  message: string;
-  type: "success" | "error" | "info";
-  position: "top-left" | "top-right" | "bottom-left" | "bottom-right";
-  icon?: string;
-  duration?: number;
-}>();
-
-const { setTimeoutToast } = useToast();
-
-const isVisible = ref(true);
-
-onMounted(() => {
-  setTimeoutToast(props.duration ?? 3000, isVisible);
-});
+const { isVisible, message, typeMessage, position } = useGlobalToast();
 </script>
 
 <template>
   <transition name="fade">
-    <div
-      :class="['toast-container', props.position, props.type, props.icon]"
-      v-if="isVisible"
-    >
-      <div class="toast-icon" v-if="props.icon">{{ props.icon }}</div>
-      <div class="toast-message">{{ props.message }}</div>
+    <div v-if="isVisible" :class="['toast-container', position, typeMessage]">
+      <div class="toast-message">{{ message }}</div>
     </div>
   </transition>
 </template>
@@ -35,6 +16,7 @@ onMounted(() => {
 .toast-container {
   position: fixed;
   padding: 1rem 1.5rem;
+  width: fit-content;
   border-radius: 8px;
   color: white;
   display: flex;
@@ -42,6 +24,10 @@ onMounted(() => {
   gap: 8px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   z-index: 999;
+}
+
+.toast-message {
+  color: black;
 }
 
 .success {

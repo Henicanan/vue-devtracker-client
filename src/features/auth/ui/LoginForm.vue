@@ -1,17 +1,15 @@
 <script setup lang="ts">
 import { reactive } from "vue";
 import { useNavigateTo } from "@/shared/lib/navigation/useNavigateTo";
+import { useLogin } from "../model/useLogin";
 
 const { navigateTo } = useNavigateTo();
+const { handleLogin } = useLogin();
 
 const formData = reactive({
-  email: "",
+  login: "",
   password: "",
 });
-
-const handleLogin = () => {
-  console.log("Click");
-};
 </script>
 
 <template>
@@ -20,14 +18,17 @@ const handleLogin = () => {
       <h2 class="login-title">Welcome Back</h2>
       <p class="login-subtitle">Sign in to access your dashboard</p>
 
-      <form @submit.prevent="handleLogin" class="login-form">
+      <form
+        @submit.prevent="handleLogin(formData.login, formData.password)"
+        class="login-form"
+      >
         <div class="input-group">
           <div class="input-wrapper">
             <input
-              v-model="formData.email"
-              type="email"
-              id="email"
-              placeholder="Enter your email"
+              v-model="formData.login"
+              type="login"
+              id="login"
+              placeholder="Enter your login"
               required
               class="input-field"
             />

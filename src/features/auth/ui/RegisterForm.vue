@@ -1,18 +1,16 @@
 <script setup lang="ts">
 import { reactive } from "vue";
 import { useNavigateTo } from "@/shared/lib/navigation/useNavigateTo";
+import { useRegister } from "../model/useRegister";
 
 const { navigateTo } = useNavigateTo();
+const { handleRegister } = useRegister();
 
 const formData = reactive({
-  email: "",
+  login: "",
   password: "",
   recoverPassword: "",
 });
-
-const handleRegister = () => {
-  console.log("Register clicked", formData);
-};
 </script>
 
 <template>
@@ -21,14 +19,23 @@ const handleRegister = () => {
       <h2 class="register-title">Create Account</h2>
       <p class="register-subtitle">Sign up to get started with your account</p>
 
-      <form @submit.prevent="handleRegister" class="register-form">
+      <form
+        @submit.prevent="
+          handleRegister(
+            formData.login,
+            formData.password,
+            formData.recoverPassword
+          )
+        "
+        class="register-form"
+      >
         <div class="input-group">
           <div class="input-wrapper">
             <input
-              v-model="formData.email"
-              type="email"
-              id="email"
-              placeholder="Email Address"
+              v-model="formData.login"
+              type="login"
+              id="login"
+              placeholder="Login"
               required
               class="input-field"
             />
