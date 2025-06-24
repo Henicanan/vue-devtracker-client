@@ -10,25 +10,13 @@ A scalable task and project management application designed for large companies.
 
 - [Vue 3](https://vuejs.org/) + [Vite](https://vitejs.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Pinia](https://pinia.vuejs.org/) — state management
 - Feature-Sliced Design (FSD) architecture
-- SCSS modules and custom UI components
-
-### Backend
-
-- [NestJS](https://nestjs.com/)
-- [TypeORM / Prisma]
-- PostgreSQL
-- JWT / Cookie-based authentication
-- Role-based access control (RBAC)
-
----
-
+- 
 ## ⚙️ Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/henicanan/task-tracker-ft.git
+git clone https://github.com/henicanan/vue-devtracker-client.git
 cd task-tracker-ft
 
 # Install dependencies
