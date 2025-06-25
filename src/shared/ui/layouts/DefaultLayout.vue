@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import BaseHeader from "../header/BaseHeader.vue";
+</script>
+
 <template>
-  <div>Layout</div>
+  <BaseHeader></BaseHeader>
 </template>
