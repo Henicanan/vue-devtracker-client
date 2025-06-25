@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
 import { authGuard } from "./guards/authGuard";
-
 import { authRoutes } from "./routes/authRoutes";
 
 const routes: RouteRecordRaw[] = [
@@ -17,6 +16,10 @@ const routes: RouteRecordRaw[] = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+router.beforeEach((to) => {
+  document.title = `${to.meta.title || "Henicanan"} - HeniTracker`;
 });
 
 router.beforeEach(authGuard);
