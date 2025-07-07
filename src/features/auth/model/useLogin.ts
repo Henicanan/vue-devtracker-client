@@ -11,7 +11,6 @@ export const useLogin = () => {
 
   const handleLogin = async (login: string, password: string) => {
     error.value = null;
-
     loading.value = true;
 
     try {
