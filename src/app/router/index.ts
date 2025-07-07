@@ -2,14 +2,21 @@ import { createRouter, createWebHistory } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
 import { authGuard } from "./guards/authGuard";
 import { authRoutes } from "./routes/authRoutes";
+import { appRoutes } from "./routes/appRoutes";
 
 const routes: RouteRecordRaw[] = [
+
   ...authRoutes,
   {
     path: "/home",
     name: "home",
     component: () => import("@/shared/ui/layouts/DefaultLayout.vue"),
     meta: { requiresAuth: true, title: "Home" },
+    children: [...appRoutes],
+  },
+  {
+    path: "/home",
+    redirect: "/home/profile",
   },
 ];
 
