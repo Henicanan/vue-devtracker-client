@@ -35,10 +35,10 @@ import BaseHeader from "../header/BaseHeader.vue";
 .main {
   flex: 1 1 0;
   min-width: 0;
-  padding: 32px 40px;
+  padding: 32px 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   background: transparent;
 }
 </style>

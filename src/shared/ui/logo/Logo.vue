@@ -7,15 +7,38 @@
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <defs>
+        <linearGradient
+          id="myGradient"
+          gradientUnits="userSpaceOnUse"
+          x1="8"
+          y1="12"
+          x2="56"
+          y2="60"
+        >
+          <stop offset="0" stop-color="#2ecc71" />
+          <stop offset="1" stop-color="#219653" />
+        </linearGradient>
+
+        <filter id="shadow">
+          <feDropShadow
+            dx="2"
+            dy="2"
+            stdDeviation="3"
+            flood-color="rgba(0, 0, 0, 0.3)"
+          />
+        </filter>
+      </defs>
       <path
         d="M16 12 L48 12 L56 24 L56 48 L32 60 L8 48 L8 24 Z"
-        fill="#1E40AF"
-        stroke="#1E40AF"
+        fill="url(#myGradient)"
+        stroke="#2ecc71"
         stroke-width="2"
+        filter="url(#shadow)"
       />
       <path
         d="M16 12 L8 24 L8 48 L32 60 L48 48 L56 48"
-        fill="#2563EB"
+        fill="#2ecc71"
         opacity="0.8"
       />
       <path
@@ -29,4 +52,8 @@
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped>
+.logo-frame {
+  display: inline-block;
+}
+</style>
