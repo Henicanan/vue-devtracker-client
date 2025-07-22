@@ -2,8 +2,11 @@ export const validatePassword = (
   password: string,
   confirmPassword?: string,
   minLength: number = 6
-): boolean | null => {
+): boolean => {
   return (
-    !password || password !== confirmPassword || password.length < minLength
+    typeof password === 'string' &&
+    typeof confirmPassword === 'string' &&
+    password === confirmPassword &&
+    password.length >= minLength
   );
 };

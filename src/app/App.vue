@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import Toast from "@/shared/ui/toast/Toast.vue";
+import { NMessageProvider } from 'naive-ui';
 </script>
 
 <template>
-  <RouterView />
-  <Toast />
+  <NMessageProvider>
+    <router-view />
+  </NMessageProvider>
 </template>

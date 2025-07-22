@@ -66,12 +66,12 @@ const filteredTabs = computed(() => {
 
   &:hover {
     background: #f2f6fa;
-    color: #002ad4;
+    color: #18a058;
   }
 
   &.active {
     background: #e6edfa;
-    color: #002ad4;
+    color: #18a058;
     font-weight: 700;
   }
 }

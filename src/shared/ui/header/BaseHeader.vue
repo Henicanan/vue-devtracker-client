@@ -49,9 +49,9 @@ const userAvatar = ref(null);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(90deg, #0d58c8 0%, #2563eb 100%);
+  background: linear-gradient(90deg, #18a058 0%, #18a058 100%);
   color: #fff;
-  border-bottom: 1px solid #0c2d5d;
+  border-bottom: 1px solid #18a058;
   box-shadow: 0 2px 12px 0 rgba(13, 88, 200, 0.08);
   padding: 0 40px;
   min-height: 64px;
@@ -80,7 +80,7 @@ const userAvatar = ref(null);
 
   &:hover h1,
   &:focus h1 {
-    color: #b3d4ff;
+    color: #03fd78;
   }
 }
 
@@ -127,7 +127,7 @@ const userAvatar = ref(null);
       height: 36px;
       border-radius: 50%;
       overflow: hidden;
-      background: rgba(255,255,255,0.13);
+      background: rgba(255, 255, 255, 0.13);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -137,7 +137,7 @@ const userAvatar = ref(null);
 
       &:hover,
       &:focus {
-        background: rgba(255,255,255,0.22);
+        background: rgba(255, 255, 255, 0.22);
         box-shadow: 0 2px 8px 0 rgba(13, 88, 200, 0.08);
       }
 

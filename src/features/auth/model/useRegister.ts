@@ -16,9 +16,9 @@ export const useRegister = () => {
   ) => {
     error.value = null;
 
-    const passwordError = validatePassword(password, confirmPassword);
+    const isPasswordValid = validatePassword(password, confirmPassword);
 
-    if (!passwordError) {
+    if (!isPasswordValid) {
       error.value = "Password do not match or must contain at least 6 symbols";
       showToast(error.value, "error", "top-right", 6000);
       return;
